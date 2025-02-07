@@ -1,0 +1,31 @@
+# ** Basic Commands
+jobs: 50 # max number of jobs to run
+latency-wait: 300 # gives time for containers to start
+rerun-incomplete: true
+retries: 0 # can be useful sometimes, default to 3
+max-jobs-per-seconds: 10
+
+executor: cluster-generic # ensure 'pip install snakemake-executor-plugin-cluster-generic'
+cluster-generic-submit-cmd: ../workflow/scripts/slurm_jobscript
+
+# ** SLURM
+default-resources:
+  slurm_account: aafc_aac
+  slurm_partition: standard
+  runtime: 60 # minutes
+  # mem_mb_per_cpu: 2048 # allways in miB  <!> work on setting this to a good value.
+  nodes: 1
+  ntasks: 1
+  mail_user: xander.fleury@agr.gc.ca
+  mail_type: END
+
+# ** CONDA
+use-conda: true
+conda-prefix: ./tmp-conda-envs
+
+# ** Rule specific config
+set-resources:
+  run_kraken2_nt:
+    clusters: gpsc8
+    slurm_account: aafc_aac__super
+    slurm_partition: super
