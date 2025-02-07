@@ -1,10 +1,17 @@
-## Setting up the Conda environment
+# Snakemake Character Frequency within Text
 
 TODO: install miniconda/prerequisites
 
-TODO: clone repository,
+## Getting Started
 
-Enter the cloned repository directory
+- Create and enter a working directory
+- Clone repository
+```
+git clone https://github.com/Xsylum/snakemake-char-frequency.git .
+```
+TODO: should "Setting up the Conda environment be combined with this?
+
+### Setting up the Conda environment
 
 Useful command to ensure the current environment appears on the bar (copy paste, do not replace {name}) (may affect "base" name):
 ```
@@ -18,12 +25,9 @@ conda env create -f char_frequency_env.yaml -n char_frequency
 conda activate char_frequency
 ```
 
-TODO: connect to the GPSC compute node
-
 ## Running the Pipeline (Snakemake)
 
 1. Place the texts you want counted into the ./Input directory
-2. Run the below command in powershell (while connected to the GPSC)
 ```
 snakemake --profile profile
 ```
