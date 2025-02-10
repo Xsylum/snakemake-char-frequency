@@ -1,0 +1,16 @@
+name: slurmmake
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemake-interface-common=1.17.4
+  - snakemake-interface-executor-plugins=9.3.3
+  - snakemake-interface-report-plugins=1.1.0
+  - snakemake-interface-storage-plugins=3.3.0
+  - snakemake-minimal=8.27.1
+  - pip=25.0
+  - pip:
+    - snakemake-executor-plugin-cluster-generic==1.0.9
+    - snakemake-executor-plugin-slurm==0.15.0
+    - snakemake-executor-plugin-slurm-jobstep==0.2.1
+prefix: /gpfs/fs7/aafc/labs/bicoe_lab/workspace/xaf000/snakemake-texts

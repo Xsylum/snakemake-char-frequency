@@ -16,23 +16,25 @@ git clone https://github.com/Xsylum/snakemake-char-frequency.git .
 
 ### Setting up the Conda environment
 
-Useful command to ensure the current environment appears on the bar (copy paste, do not replace {name}) (may affect "base" name):
+In order to run the pipeline, a conda environment with access to snakemake and slurm commands must first be activated
+
 ```
-conda config --set env_prompt '({name})'
+conda env create -f environments/slurmmake_env.yaml -p ./slurmmake
+conda activate ./slurmmake
 ```
 
-(might need to do the first command twice!)
+Additional packages used by rules in the pipeline can be downloaded through executing the below command:
 ```
-conda config --append envs_dirs ./conda_environment
-conda env create -f char_frequency_env.yaml -n char_frequency
-conda activate char_frequency
+snakemake --profile profile -f download  
 ```
+
 
 ## Running the Pipeline (Snakemake)
 
 1. Place the texts you want counted into the ./Input directory
+2. Execute the below command (while using slurmmake environment)
 ```
-snakemake --profile profile
+snakemake --profile profile all
 ```
 
 ### Outputs folder contents
