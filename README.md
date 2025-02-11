@@ -28,16 +28,16 @@ Additional packages used by rules in the pipeline can be downloaded through exec
 snakemake --profile profile -f download  
 ```
 
-
-## Running the Pipeline (Snakemake)
+### Running the Pipeline (Snakemake)
 
 1. Place the texts you want counted into the ./Input directory
 2. Execute the below command (while using slurmmake environment)
 ```
 snakemake --profile profile all
 ```
+3. The desired pipeline output files can be viewed, as detailed in the below "Outputs folder contents" section
 
-### Outputs folder contents
+## Outputs folder contents
 After running the above snakemake command, desired output files can be found in the following subdirectories:
 
 - CharDataOutput: Records of how many times a character appeared in a specific text
@@ -47,3 +47,5 @@ After running the above snakemake command, desired output files can be found in 
     - combined_chars: Two bar graphs, sorted in both formats, for the combined characters of all Input texts
     - magnitude_sorted: Bar graphs for each text, sorted in order of most occurrences of the character
 
+## Pipeline Overview
+![image](PipelineDiagram.png)
