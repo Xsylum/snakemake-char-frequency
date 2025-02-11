@@ -5,11 +5,11 @@
 ## Additional options not covered here can be found at https://snakemake.readthedocs.io/en/stable/executing/cli.html#execution
 
 ## Ripped the below code under "Workflow Profile Examples" from the site: https://gcxgce.sharepoint.com/teams/1000645/SitePages/Snakemake-GPSC-Documentation.aspx
- 
+
 ######################
 ### Basic Commands ###
 ######################
-cores: 32 # total number of cores you want snakemake to request at any time.
+cores: 25 # total number of cores you want snakemake to request at any time.
 jobs: 20  # max amount of jobs to run at once.
 latency-wait: 60 # gives time for containers to start and for other I/O delays
 rerun-incomplete: true
@@ -17,7 +17,8 @@ rerun-incomplete: true
 retries: 0 # useful for certain systems.
 max-jobs-per-second: 20 # not sure how necessary but probably not a bad idea....
 # max-threads:
-executor: slurm
+executor: cluster-generic
+cluster-generic-submit-cmd: "Scripts/slurm_jobscript.py" # I believe this command allows us to specify how the below is submitted to the cluster
  
  
 #############
@@ -27,26 +28,29 @@ executor: slurm
 default-resources: 
   slurm_account: aafc_aac
   slurm_partition: standard
-  nodes: 1
-  ntasks: 32
   runtime: 5  # integer defines minutes
+  nodes: 1
+  ntasks: 2
   mail_user: xander.fleury@agr.gc.ca
   mail_type: END,FAIL
   # - slurm_extra=" "
- 
-###################
-### Env Modules ###
-###################
-# use-envmodules: false
  
  
 #############
 ### Conda ###
 #############
-use-conda: true
+use-conda: True
 # conda-cleanup-envs: true
 # conda-cleanup-pkgs: 
 # conda-frontend: mamba   # can use conda IF mamba is not installed. 
+ 
+ 
+###################
+### Env Modules ###
+###################
+# use-envmodules: true
+# envmodules: "environments/slurmmake_env.yaml"
+ 
  
 #######################
 ### Resource Scopes ###
@@ -56,6 +60,7 @@ use-conda: true
 # set-resource-scopes:
 #     cores: local
  
+
 ########################
 ### Containerization ###
 ########################
@@ -68,7 +73,7 @@ use-conda: true
 #################################
 ### TroubleShooting / Testing ###
 #################################
-# forceall: true # turn on for testing forces all jobs to be re-run. 
+forceall: true # turn on for testing forces all jobs to be re-run. 
 # verbose: true # use for debugging. 
 # debug: true  # used for debugging.
 # nolock: false
@@ -81,7 +86,7 @@ use-conda: true
 # list-params-changes: false
 # summary: false
 # detailed-summary: false
-# report: # add a specific file for this if you would like it. 
+#report: # add a specific file for this if you would like it. 
  
  
 #############################
