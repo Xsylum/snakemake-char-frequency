@@ -1,8 +1,8 @@
 # Snakemake Character Frequency within Text
 
-This pipeline uses input texts provided by the user to generate information (in plain text and graphical form) on each text's character composition.
+This pipeline uses input texts provided by the user to generate information (in plain text and graphical form) on each text's character composition. It is designed to work on a slurm-based cluster computer, but may be adapted for other scheduling systems or local machines.
 
-The current detailed installation process assumes access to the GPSC. Please connect to the GPSC prior to executing the below to ensure compatibility
+The installation and usage directions below assume access to the GPSC. Please connect to the GPSC prior to executing the below to ensure compatibility
 
 TODO: install miniconda/prerequisites
 
