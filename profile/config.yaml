@@ -18,7 +18,8 @@ retries: 0 # useful for certain systems.
 max-jobs-per-second: 20 # not sure how necessary but probably not a bad idea....
 # max-threads:
 executor: cluster-generic
-cluster-generic-submit-cmd: "Scripts/slurm_jobscript.py" # I believe this command allows us to specify how the below is submitted to the cluster
+cluster-generic-submit-cmd: "workflow/scripts/slurm_jobscript.py" # I believe this command allows us to specify how the below is submitted to the cluster
+# cluster-cancel: scancel   # doesn't seem to work...
  
  
 #############
@@ -30,7 +31,7 @@ default-resources:
   slurm_partition: standard
   runtime: 5  # integer defines minutes
   nodes: 1
-  ntasks: 2
+  ntasks: 4
   mail_user: xander.fleury@agr.gc.ca
   mail_type: END,FAIL
   # - slurm_extra=" "

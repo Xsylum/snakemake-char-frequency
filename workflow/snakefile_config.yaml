@@ -1,0 +1,7 @@
+# ***** VARIABLES *****
+texts:
+  ipsum: "inputs/loremipsum.txt"
+  brassSpoons: "inputs/BrassSpoons.txt"
+  lonePaperclip: "inputs/LonePaperclip.txt"
+  amberGlow: "inputs/amberglow.txt"
+  velvetRibbon: "inputs/VelvetRibbons.txt"

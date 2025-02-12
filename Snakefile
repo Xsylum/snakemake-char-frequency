@@ -8,7 +8,7 @@ include: "MainWorkflow.smk"
 # will run on the head node, access to internet
 rule download:
     output:
-        "conda_packages_downloaded.txt"
+        temp("conda_packages_downloaded.txt")
     threads: 5
     shell:
         "snakemake --sdm conda --conda-create-envs-only all && touch {output}"
