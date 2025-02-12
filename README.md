@@ -25,7 +25,7 @@ conda activate ./slurmmake
 
 Additional packages used by rules in the pipeline can be downloaded through executing the below command:
 ```
-snakemake --profile profile -f download  
+snakemake --workflow-profile profile -f download  
 ```
 
 ### Running the Pipeline (Snakemake)
@@ -33,7 +33,7 @@ snakemake --profile profile -f download
 1. Place the texts you want counted into the ./Input directory
 2. Execute the below command (while using slurmmake environment)
 ```
-snakemake --profile profile all
+snakemake --workflow-profile profile all
 ```
 3. The desired pipeline output files can be viewed, as detailed in the below "Outputs folder contents" section
 
@@ -49,3 +49,11 @@ After running the above snakemake command, desired output files can be found in 
 
 ## Pipeline Overview
 ![image](PipelineDiagram.png)
+
+## Credits & Acknowledgements
+**Sample input texts**
+- Lorem ipsum paragraphs sourced online from [lipsum](https://www.lipsum.com/)
+- Other texts were generated semi-randomly using [ChatGPT](https://chatgpt.com/)
+
+**Code**
+- slurm_jobscript.py written by Martin Gauthier, with its license commented at the top of the file
